@@ -13,20 +13,26 @@ function startTimer(minutes, taskId) {
         if (time < 0) {
             clearInterval(activeTimer);
             timerDisplay.textContent = "Done!";
-            document.getElementById(taskId).style.opacity = "0.5"; // Mark as done
+            document.getElementById(taskId).style.opacity = "0.5";
         }
     }, 1000);
 }
 
-// Edit Energy Windows (Placeholder)
+// Edit Energy Zones
 function editEnergy() {
-    alert("Edit energy windows here (future: sliders or voice input).");
+    alert("Edit energy zones (future: AI suggestions or sliders).");
+}
+
+// Reprioritize (Placeholder for AI/Backend)
+function reprioritize() {
+    alert("Reprioritizing tasks around Google Calendar and energy zones...");
+    // Future: AI logic to reorder tasks
 }
 
 // Break Function
 function addBreak() {
     if (activeTimer) clearInterval(activeTimer);
-    document.getElementById("timer-display").textContent = "Break: 15:00";
+    document.getElementById("timer-display").textContent = "15:00";
     startTimer(15);
 }
 
@@ -39,19 +45,23 @@ function toggleAFK() {
     document.getElementById("timer-display").textContent = isAFK ? "AFK" : "00:00";
 }
 
-// Voice Control
+// Voice Control (AI-Friendly)
 const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 recognition.onresult = (event) => {
     const command = event.results[0][0].transcript.toLowerCase();
     console.log(command);
     if (command.includes("add task")) {
-        alert("Task added via voice: " + command); // Placeholder for task parsing
+        alert("Task added: " + command); // Future: AI parse to task object
     } else if (command.includes("start task call client")) {
         startTimer(30, "task1");
+    } else if (command.includes("start task write report")) {
+        startTimer(60, "task2");
     } else if (command.includes("break")) {
         addBreak();
     } else if (command.includes("afk")) {
         toggleAFK();
+    } else if (command.includes("reprioritize")) {
+        reprioritize();
     }
 };
 document.getElementById("voice-btn").onclick = () => recognition.start();
