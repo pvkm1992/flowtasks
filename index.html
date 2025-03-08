@@ -4,48 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FlowTasks</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>FlowTasks</h1>
-        <button id="voice-btn" class="btn">🎙️ Voice</button>
+    <div class="timer-circle" id="timer-display">00:00</div>
+    <div class="app-container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <h1>FlowTasks</h1>
+            <button id="voice-btn" class="btn">🎙️ Voice</button>
 
-        <!-- Energy Windows -->
-        <section id="energy-windows">
-            <h2>Energy Windows</h2>
-            <div class="energy-block" id="high-energy">High: 8 AM - 12 PM</div>
-            <div class="energy-block" id="medium-energy">Medium: 1 PM - 4 PM</div>
-            <div class="energy-block" id="low-energy">Low: 6 PM - 9 PM</div>
-            <button class="btn" onclick="editEnergy()">Edit</button>
-        </section>
+            <!-- Energy Windows -->
+            <section id="energy-windows">
+                <h2>Energy Zones</h2>
+                <div class="energy-card high-energy">High: 8 AM - 12 PM</div>
+                <div class="energy-card medium-energy">Medium: 1 PM - 4 PM</div>
+                <div class="energy-card low-energy">Low: 6 PM - 9 PM</div>
+                <button class="btn edit-btn" onclick="editEnergy()">Edit</button>
+            </section>
 
-        <!-- Tasks -->
-        <section id="tasks">
-            <h2>Tasks</h2>
-            <div class="task-card high" id="task1">
-                <span>Call client (30 mins) - High - Mar 9</span>
-                <button class="start-btn" onclick="startTimer(30, 'task1')">Start</button>
-            </div>
-            <div class="task-card medium" id="task2">
-                <span>Write report (1 hr) - Med - Mar 10</span>
-                <button class="start-btn" onclick="startTimer(60, 'task2')">Start</button>
-            </div>
-            <div id="timer-display">00:00</div>
-        </section>
+            <!-- Tasks -->
+            <section id="tasks">
+                <h2>Tasks</h2>
+                <div class="task-card high" id="task1">
+                    <span>Call client (30 mins) - High - Mar 9</span>
+                    <button class="start-btn" onclick="startTimer(30, 'task1')">Start</button>
+                </div>
+                <div class="task-card medium" id="task2">
+                    <span>Write report (1 hr) - Med - Mar 10</span>
+                    <button class="start-btn" onclick="startTimer(60, 'task2')">Start</button>
+                </div>
+                <button class="btn reprioritize-btn" onclick="reprioritize()">Reprioritize</button>
+            </section>
 
-        <!-- Calendar Placeholder -->
-        <section id="calendar">
-            <h2>Calendar</h2>
-            <div class="event">Team Meeting: 10 AM - 11 AM</div>
-        </section>
+            <!-- Controls -->
+            <section id="controls">
+                <button class="btn break-btn" onclick="addBreak()">Break (15 mins)</button>
+                <button class="btn afk-btn" onclick="toggleAFK()">AFK</button>
+            </section>
+        </div>
 
-        <!-- Controls -->
-        <section id="controls">
-            <button class="btn" onclick="addBreak()">Break (15 mins)</button>
-            <button class="btn" onclick="toggleAFK()">AFK</button>
-        </section>
+        <!-- Right Section: Calendar Widget -->
+        <div class="right-section">
+            <section id="calendar-widget">
+                <h2>Today: Mar 08, 2025</h2>
+                <div class="calendar-timeline">
+                    <div class="time-slot">8:00 AM - <span class="energy">High Energy</span></div>
+                    <div class="time-slot">10:00 AM - <span class="event">Team Meeting (1 hr)</span></div>
+                    <div class="time-slot">11:00 AM - <span class="task high">Call client (30 mins)</span></div>
+                    <div class="time-slot">1:00 PM - <span class="energy">Medium Energy</span></div>
+                    <div class="time-slot">2:00 PM - <span class="task medium">Write report (1 hr)</span></div>
+                    <div class="time-slot">6:00 PM - <span class="energy">Low Energy</span></div>
+                </div>
+            </section>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
