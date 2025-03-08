@@ -1,80 +1,140 @@
 body {
     font-family: 'Inter', sans-serif;
-    background: #f5f5f5;
+    background: linear-gradient(135deg, #f0f4ff, #e0eaff);
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
+.timer-circle {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(45deg, #6b48ff, #00ddeb);
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.app-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 160px auto 20px;
+    gap: 20px;
+}
+
+.left-section {
+    flex: 2;
     background: white;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.right-section {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
 h1 {
-    font-size: 24px;
-    color: #333;
+    font-size: 28px;
+    color: #1a1a3d;
+    background: linear-gradient(90deg, #6b48ff, #00ddeb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-align: center;
 }
 
 h2 {
-    font-size: 18px;
-    color: #666;
-    margin-top: 20px;
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
 }
 
-.energy-block {
-    padding: 10px;
-    margin: 5px 0;
-    background: #e0e0e0;
-    border-radius: 4px;
+.energy-card {
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.2s;
 }
+
+.energy-card:hover {
+    transform: scale(1.02);
+}
+
+.high-energy { background: linear-gradient(45deg, #ff4d4d, #ff8787); }
+.medium-energy { background: linear-gradient(45deg, #ffaa00, #ffd966); }
+.low-energy { background: linear-gradient(45deg, #33cc33, #80ff80); }
 
 .task-card {
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 4px;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: white;
+    font-weight: 600;
+    transition: transform 0.2s;
 }
 
-.high { background: #ffe6e6; border-left: 4px solid #ff4d4d; }
-.medium { background: #fff3e6; border-left: 4px solid #ffaa00; }
-.low { background: #e6ffe6; border-left: 4px solid #33cc33; }
-
-.event {
-    padding: 10px;
-    background: #f0f0f0;
-    border-radius: 4px;
-    margin: 5px 0;
+.task-card:hover {
+    transform: scale(1.02);
 }
+
+.high { background: linear-gradient(45deg, #ff4d4d, #ff8787); }
+.medium { background: linear-gradient(45deg, #ffaa00, #ffd966); }
+.low { background: linear-gradient(45deg, #33cc33, #80ff80); }
 
 .btn {
-    padding: 8px 16px;
-    background: #333;
-    color: white;
+    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px;
+    color: white;
+    font-weight: 600;
     cursor: pointer;
-    margin: 5px;
+    transition: all 0.3s;
 }
 
 .btn:hover {
-    background: #555;
+    opacity: 0.9;
+    transform: translateY(-2px);
 }
 
-.start-btn {
-    background: #007bff;
-    padding: 5px 10px;
+.edit-btn { background: #6b48ff; }
+.start-btn { background: #00ddeb; padding: 8px 16px; }
+.reprioritize-btn { background: #ff4d4d; margin-top: 10px; }
+.break-btn { background: #ffaa00; }
+.afk-btn { background: #33cc33; }
+
+.calendar-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-#timer-display {
-    font-size: 20px;
-    text-align: center;
-    margin: 10px 0;
+.time-slot {
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    font-size: 14px;
     color: #333;
 }
+
+.energy { color: #6b48ff; font-weight: bold; }
+.event { color: #ff4d4d; font-weight: bold; }
+.task { padding: 5px; border-radius: 4px; color: white; }
