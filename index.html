@@ -18,23 +18,14 @@
             <!-- Energy Windows -->
             <section id="energy-windows">
                 <h2>Energy Zones</h2>
-                <div class="energy-card high-energy">High: 8 AM - 12 PM</div>
-                <div class="energy-card medium-energy">Medium: 1 PM - 4 PM</div>
-                <div class="energy-card low-energy">Low: 6 PM - 9 PM</div>
+                <div id="energy-list"></div>
                 <button class="btn edit-btn" onclick="editEnergy()">Edit</button>
             </section>
 
             <!-- Tasks -->
             <section id="tasks">
                 <h2>Tasks</h2>
-                <div class="task-card high" id="task1">
-                    <span>Call client (30 mins) - High - Mar 9</span>
-                    <button class="start-btn" onclick="startTimer(30, 'task1')">Start</button>
-                </div>
-                <div class="task-card medium" id="task2">
-                    <span>Write report (1 hr) - Med - Mar 10</span>
-                    <button class="start-btn" onclick="startTimer(60, 'task2')">Start</button>
-                </div>
+                <div id="task-list"></div>
                 <button class="btn reprioritize-btn" onclick="reprioritize()">Reprioritize</button>
             </section>
 
@@ -49,17 +40,15 @@
         <div class="right-section">
             <section id="calendar-widget">
                 <h2>Today: Mar 08, 2025</h2>
-                <div class="calendar-timeline">
-                    <div class="time-slot">8:00 AM - <span class="energy">High Energy</span></div>
-                    <div class="time-slot">10:00 AM - <span class="event">Team Meeting (1 hr)</span></div>
-                    <div class="time-slot">11:00 AM - <span class="task high">Call client (30 mins)</span></div>
-                    <div class="time-slot">1:00 PM - <span class="energy">Medium Energy</span></div>
-                    <div class="time-slot">2:00 PM - <span class="task medium">Write report (1 hr)</span></div>
-                    <div class="time-slot">6:00 PM - <span class="energy">Low Energy</span></div>
-                </div>
+                <div class="calendar-timeline" id="calendar-timeline"></div>
             </section>
         </div>
     </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
